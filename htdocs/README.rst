@@ -98,7 +98,7 @@ js
 
   :Website: http://rmariuzzo.github.io/checkboxes.js
   :GitHub: https://github.com/rmariuzzo/checkboxes.js
-  :Version: 1.0.6
+  :Version: 1.2.2
 
 ``jquery.stickytableheaders.js``
   A jQuery plugin that makes large tables more usable by having the table
