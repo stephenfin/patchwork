@@ -89,7 +89,7 @@ js
 
   :Website: https://jquery.com/
   :GitHub: https://github.com/jquery/jquery
-  :Version: 1.10.1
+  :Version: 3.3.1
 
 ``jquery.checkboxes.js``
   A jQuery plugin that gives you nice powers over your checkboxes.
