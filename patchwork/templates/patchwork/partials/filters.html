@@ -124,16 +124,16 @@ $(document).ready(function() {
   {% for filter in filters.applied_filters.values %}
    {{ filter.name }} = <strong>{{ filter.condition }}</strong>
     {% if not filter.forced %}
-     <a class="filter-action"
-        href="{{ filter.url_without_me }}">&nbsp;&nbsp;<span
-        class="glyphicon glyphicon-minus-sign"></span></a>
+     <a class="filter-action" href="{{ filter.url_without_me }}">
+        &nbsp;&nbsp;<i class="fas fa-times-circle"></i>
+     </a>
     {% endif %}
    {% if not forloop.last %}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{% endif %}
   {% endfor %}
  {% else %}
-  none&nbsp;&nbsp;<a class="filter-action"
-   href="javascript:filter_click()"><span
-   class="glyphicon glyphicon-plus-sign"></span></a>
+  none&nbsp;&nbsp;<a class="filter-action" href="javascript:filter_click()">
+   <i class="fas fa-plus"></i>
+  </a>
  {% endif %}
  {% with patch_count=page.paginator.count %}
    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{ patch_count }}

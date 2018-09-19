@@ -20,6 +20,12 @@ css
 
   Refer to the :ref:`js` section below for more information on `Selectize`.
 
+``fontawesome.min.css``, ``solid.css``
+  Font Awesome is a font and icon toolkit based on CSS and LESS.
+
+  ``fontawesome.min.css`` is the core styling file, while ``solid.css`` is the
+  CSS for the *solid* style used.
+
 ``style.css``
   Custom, Patchwork styling. Mostly a collection of overrides for default
   Bootstrap styles.
@@ -122,3 +128,14 @@ js
   :Website: https://selectize.github.io/selectize.js/
   :GitHub: https://github.com/selectize/selectize.js
   :Version: 0.11.2
+
+
+.. _webfonts:
+
+webfonts
+--------
+
+``fa-solid-*.*``
+  Web fonts for the `Font Awesome` icon set.
+
+  Refer to the :ref:`css` section for more information on `Font Awesome`.

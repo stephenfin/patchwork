@@ -28,21 +28,18 @@
   </td>
   <td style="text-align: center;">
    {% if bundle.public %}
-    <span class="glyphicon glyphicon-ok"></span>
-   {% else %}
-    <span class="glyphicon glyphicon-remove"></span>
+   <i class="fas fa-check-circle"></i>
    {% endif %}
   </td>
   <td style="text-align: right">{{ bundle.patches.count }}</td>
   <td style="text-align: center;"><a href="{{ bundle.get_mbox_url }}"
-   ><span class="glyphicon glyphicon-download-alt"></span></a></td>
+   ><i class="fas fa-download"></i></a></td>
   <td style="text-align: center;">
-   <form method="post"
-    onsubmit="return confirm_delete('bundle', '{{bundle.name|escapejs}}');">
+   <form method="post" onsubmit="return confirm_delete('bundle', '{{bundle.name|escapejs}}');">
     {% csrf_token %}
     {{ bundle.delete_form.as_p }}
     <button type="submit" style="background: transparent; border: 0px; padding: 0; outline: 0;">
-     <span class="glyphicon glyphicon-remove"></span>
+     <i class="fas fa-minus-circle"></i>
     </button>
    </form>
   </td>
