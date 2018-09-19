@@ -2,36 +2,24 @@
 
 {% block title %}Project List{% endblock %}
 {% block body %}
-<div style="margin-top:20px;"></div>
+<div class="mt-4"></div>
 {% if projects %}
+<div class="card-columns">
 {% for p in projects %}
-{% cycle '<div class="row">' '' '' %}
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <div class="caption">
-        <h3>{{p.name}}</h3>
-        <p class="core-info">
-         <span>
-          <a href="{% url 'patch-list' project_id=p.linkname %}">
-           View patches
-          </a>
-        </span>
-        </p>
-{% if p.web_url %}
-      <p><a href="{{p.web_url}}">{{p.web_url}}</a></p>
-{% endif %}
-{% if p.webscm_url %}
-      <p><a href="{{p.webscm_url}}">{{p.webscm_url}}</a></p>
-{% endif %}
-     </div>
-   </div>
- </div>
-{% if forloop.last %}
-</div>
-{% else %}
-{% cycle '' '' '</div>' %}
-{% endif %}
+  <div class="card">
+    <h3 class="card-header">{{p.name}}</h3>
+    <div class="card-body">
+      <a class="btn btn-primary btn-sm" href="{% url 'patch-list' project_id=p.linkname %}">View patches</a>
+      {% if p.web_url %}
+      <a class="btn btn-secondary btn-sm" href="{{ p.web_url }}">Web URL</a>
+      {% endif %}
+      {% if p.webscm_url %}
+      <a class="btn btn-secondary btn-sm" href="{{ p.webscm_url }}">Web SCM URL</a>
+      {% endif %}
+    </div>
+  </div>
 {% endfor %}
+</div>
 {% else %}
 <p>Patchwork doesn't have any projects to display!</p>
 {% endif %}

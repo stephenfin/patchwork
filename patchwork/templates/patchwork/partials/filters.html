@@ -141,22 +141,22 @@ $(document).ready(function() {
  {% endwith %}
  </div>
  <div id="filterform" style="padding-top: 1em; display: none">
-  <form class="form-horizontal" method="get">
+  <form method="get">
    {% for filter in filters.available_filters %}
    {% if not filter.forced %}
-   <div class="form-group">
-    <label class="col-sm-2 control-label">{{ filter.name }}</label>
+   <div class="form-group row">
+    <label class="col-sm-2 col-form-label font-weight-bold">{{ filter.name }}</label>
     <div class="col-sm-5">
       {{ filter.form }}
     </div>
-   </div>
+   </div>  <!-- /.form-group .row -->
    {% endif %}
    {% endfor %}
-   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-5">
-     <button type="submit" class="btn btn-default">Apply</button>
+   <div class="form-group row">
+    <div class="offset-2 col-sm-5">
+     <button type="submit" class="btn btn-secondary">Apply</button>
     </div>
-   </div>
+   </div>  <!-- /.form-group .row -->
   </form>
- </div>
-</div>
+ </div>  <!-- /#filterform -->
+</div>  <!-- /#filters -->

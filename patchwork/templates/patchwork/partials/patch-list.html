@@ -37,7 +37,9 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#patchlist').stickyTableHeaders();
+    $('#patchlist').stickyTableHeaders({
+        fixedOffset: $('.navbar').outerHeight()
+    });
 
     $('#check-all').change(function(e) {
         if(this.checked) {
@@ -54,117 +56,117 @@ $(document).ready(function() {
 {% csrf_token %}
 <input type="hidden" name="form" value="patchlistform"/>
 <input type="hidden" name="project" value="{{project.id}}"/>
-<table id="patchlist" class="table table-hover table-extra-condensed table-striped pw-list"
+<table id="patchlist" class="table table-hover table-extra-condensed table-striped"
        data-toggle="checkboxes" data-range="true">
- <thead>
+ <thead class="thead-light">
   <tr>
    {% if user.is_authenticated %}
-   <th style="text-align: center;">
+   <th class="text-center" scope="col">
     <input type="checkbox" id="check-all"/>
    </th>
    {% endif %}
 
    {% if user.is_authenticated and user.profile.show_ids %}
-   <th>
+   <th class="text-center text-dark" scope="col">
      ID
    </th>
    {% endif %}
 
-   <th>
+   <th scope="col" class="text-dark">
     {% ifequal order.name "name" %}
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       <i class="fas fa-chevron-{{ order.updown }}"></i>
      </a>
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       Patch
      </a>
     {% else %}
      {% if not order.editable %}
-     <a class="colinactive" href="{% listurl order="name" %}">Patch</a>
+     <a class="text-dark" href="{% listurl order="name" %}">Patch</a>
      {% else %}
-     <span class="colinactive">Patch</span>
+     <span>Patch</span>
      {% endif %}
     {% endifequal %}
    </th>
 
-   <th>
-    <span class="colinactive">Series</span>
+   <th scope="col" class="text-dark">
+    <span>Series</span>
    </th>
 
-   <th>
+   <th scope="col" class="text-dark">
     {% project_tags %}
    </th>
 
-   <th>
+   <th scope="col" class="text-dark">
     <span title="Success / Warning / Fail">S/W/F</span>
    </th>
 
-   <th>
+   <th scope="col" class="text-dark">
     {% ifequal order.name "date" %}
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       <i class="fas fa-chevron-{{ order.updown }}"></i>
      </a>
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       Date
      </a>
     {% else %}
      {% if not order.editable %}
-     <a class="colinactive" href="{% listurl order="date" %}">Date</a>
+     <a class="text-dark" href="{% listurl order="date" %}">Date</a>
      {% else %}
-     <span class="colinactive">Date</span>
+     <span>Date</span>
      {% endif %}
     {% endifequal %}
    </th>
 
-   <th>
+   <th scope="col" class="text-dark">
     {% ifequal order.name "submitter" %}
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       <i class="fas fa-chevron-{{ order.updown }}"></i>
      </a>
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       Submitter
      </a>
     {% else %}
      {% if not order.editable %}
-     <a class="colinactive" href="{% listurl order="submitter" %}">
+     <a class="text-dark" href="{% listurl order="submitter" %}">
       Submitter
      </a>
      {% else %}
-     <span class="colinactive">Submitter</span>
+     <span>Submitter</span>
      {% endif %}
     {% endifequal %}
    </th>
 
-   <th>
+   <th scope="col" class="text-dark">
     {% ifequal order.name "delegate" %}
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       <i class="fas fa-chevron-{{ order.updown }}"></i>
      </a>
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       Delegate
      </a>
     {% else %}
      {% if not order.editable %}
-     <a class="colinactive" href="{% listurl order="delegate" %}">Delegate</a>
+     <a class="text-dark" href="{% listurl order="delegate" %}">Delegate</a>
      {% else %}
-     <span class="colinactive">Delegate</span>
+     <span>Delegate</span>
      {% endif %}
     {% endifequal %}
    </th>
 
-   <th>
+   <th scope="col" class="text-dark">
     {% ifequal order.name "state" %}
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       <i class="fas fa-chevron-{{ order.updown }}"></i>
      </a>
-     <a class="colactive" href="{% listurl order=order.reversed_name %}">
+     <a class="text-dark" href="{% listurl order=order.reversed_name %}">
       State
      </a>
     {% else %}
      {% if not order.editable %}
-     <a class="colinactive" href="{% listurl order="state" %}">State</a>
+     <a class="text-dark" href="{% listurl order="state" %}">State</a>
      {% else %}
-     <span class="colinactive">State</span>
+     <span>State</span>
      {% endif %}
     {% endifequal %}
    </th>
@@ -176,12 +178,12 @@ $(document).ready(function() {
  {% for patch in page.object_list %}
   <tr id="patch_row:{{patch.id}}">
    {% if user.is_authenticated %}
-   <td style="text-align: center;">
+   <td class="text-center">
     <input type="checkbox" name="patch_id:{{patch.id}}"/>
    </td>
    {% endif %}
    {% if user.is_authenticated and user.profile.show_ids %}
-   <td>
+   <td class="text-center">
     <button type="button" class="btn btn-xs btn-copy"
      data-clipboard-text="{{ patch.id }}" title="Copy to Clipboard">
       {{ patch.id }}

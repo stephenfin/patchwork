@@ -364,22 +364,23 @@ class ArchiveFilter(Filter):
 
     @property
     def form(self):
-        s = ''
-        for b in [False, True, None]:
-            label = self.description_map[b]
-            selected = ''
-            if self.archive_state == b:
-                selected = 'checked'
-            s += ('<label class="checkbox-inline">'
-                  ' <input type="radio" name="%(param)s" '
-                  '%(selected)s value="%(value)s">%(label)s'
-                  '</label>') % \
-                {'label': label,
-                 'param': self.param,
-                 'selected': selected,
-                 'value': self.param_map[b]
-                 }
-        return mark_safe(s)
+        out = []
+        for num, b in enumerate([False, True, None]):
+            elem = """
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="%(param)s" \
+id="archiveRadio%(num)s" value="%(value)s" %(selected)s>
+  <label class="form-check-label" for="archiveRadio%(num)s">%(label)s</label>
+</div>
+"""
+            out.append(elem % {
+                'num': num,
+                'label': self.description_map[b],
+                'param': self.param,
+                'selected': 'checked' if b == self.archive_state else '',
+                'value': self.param_map[b]
+            })
+        return mark_safe(''.join(out))
 
 
 class DelegateFilter(Filter):

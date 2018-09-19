@@ -15,10 +15,14 @@ css
 
   Refer to the :ref:`js` section below for more information on `Bootstrap`.
 
-``selectize.bootstrap3.css``
+``selectize.bootstrap4.css``
   CSS for the `Selectize` library.
 
+  This is a custom Bootstrap 4 skin for the library.
+
   Refer to the :ref:`js` section below for more information on `Selectize`.
+
+  :GitHub: https://github.com/papakay/selectize-bootstrap-4-style
 
 ``fontawesome.min.css``, ``solid.css``
   Font Awesome is a font and icon toolkit based on CSS and LESS.
@@ -60,7 +64,7 @@ js
 
   :Website: https://getbootstrap.com/
   :GitHub: https://github.com/twbs/bootstrap/
-  :Version: 3.2.0
+  :Version: 4.1.3
 
 ``bundle.js``
   Utility functions for bundle patch list manipulation (re-ordering patches,
@@ -119,6 +123,15 @@ js
   :Website: http://www.isocra.com/2008/02/table-drag-and-drop-jquery-plugin/
   :GitHub: jQuery plug-in to drag and drop rows in HTML tables
   :Version: ???
+
+``popper.min.js``
+  A kickass library used to manage poppers in web applications.
+
+  This is a requirement of Bootstrap 4.
+
+  :Website: https://popper.js.org
+  :GitHub: https://github.com/FezVrasta/popper.js
+  :Version: 1.14.4
 
 ``selectize.min.js``
   Selectize is the hybrid of a ``textbox`` and ``<select>`` box. It's jQuery

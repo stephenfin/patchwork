@@ -15,36 +15,32 @@
   <p>Patchwork is built on the <a href="https://djangoproject.com/">Django</a>
   web framework using <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Version</h3>
-    </div>
-    <ul class="list-group">
+  <div class="card mb-3">
+    <h3 class="card-header">Version</h3>
+    <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <p>{{ version }}</p>
       </li>
     </ul>
   </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">API Status</h3>
-    </div>
-    <ul class="list-group">
+  <div class="card">
+    <h3 class="card-header">API Status</h3>
+    <ul class="list-group list-group-flush">
       <li class="list-group-item">
         REST <i class="fas fa-question-circle" title="The REST API"></i>
         {% if enabled_apis.rest %}
-        <span class="label label-success pull-right">enabled</span>
+        <span class="badge badge-success float-right">enabled</span>
         {% else %}
-        <span class="label label-warning pull-right">disabled</span>
+        <span class="badge badge-warning float-right">disabled</span>
         {% endif %}
       </li>
       <li class="list-group-item">
         XML-RPC <i class="fas fa-question-circle" title="The XML-RPC API"></i>
         {% if enabled_apis.xmlrpc %}
-        <span class="label label-success pull-right">enabled</span>
+        <span class="badge badge-success float-right">enabled</span>
         {% else %}
-        <span class="label label-warning pull-right">disabled</span>
+        <span class="badge badge-warning float-right">disabled</span>
         {% endif %}
       </li>
     </ul>
