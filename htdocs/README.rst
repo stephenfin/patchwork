@@ -127,7 +127,7 @@ js
 
   :Website: https://selectize.github.io/selectize.js/
   :GitHub: https://github.com/selectize/selectize.js
-  :Version: 0.11.2
+  :Version: 0.12.4
 
 
 .. _webfonts:
