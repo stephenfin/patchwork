@@ -108,7 +108,7 @@ js
   scroll.
 
   :GitHub: https://github.com/jmosbech/StickyTableHeaders
-  :Version: 0.1.19
+  :Version: 0.1.24
 
 ``jquery.tablednd.js``
   jQuery plug-in to drag and drop rows in HTML tables.
